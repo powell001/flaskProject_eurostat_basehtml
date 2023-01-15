@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <div class="container text-center">
+        <h1>GDP Country Over Time</h1>
+        <h2>Choose a Country</h2>
+
+        <input type="text" id="fname" name="fname" onchange="cb2(this.value)", value="NL",  STYLE="color: #000099; font-family: Verdana; font-size: 12px; background-color: #FFC0CB;" size="10" maxlength="5">
+
+        <p></p>
+        <div id="chart" class="chart"></div>
+
+    </div>
+
+     <script>
+        d = {{ graphJSON | safe }};
+        Plotly.newPlot('chart', d, {});
+    </script>
+
+
+{% endblock %}

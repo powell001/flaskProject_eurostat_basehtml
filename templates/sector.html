@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm"></div>
+
+            <div class="col-sm">
+                <table class="table table-sm table-dark table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">Sector Description</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>A</td>
+                        <td>Agriculture, forestry and fishing</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>B-E</td>
+                        <td>Manufacturing, mining and quarrying and other industry</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>C</td>
+                        <td>Of which: manufacturing</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>F</td>
+                        <td>Construction</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>G-I</td>
+                        <td>Wholesale and retail trade, transportation and storage, accommodation and food service activities</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>J</td>
+                        <td>Information and communication</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>K</td>
+                        <td>Financial and insurance activities</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>L</td>
+                        <td>Real estate activities</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>M_N</td>
+                        <td>Professional, scientific, technical, administration and support service activities</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>O-Q</td>
+                        <td>Public administration, defence, education, human health and social work activities</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11</th>
+                        <td>R-U</td>
+                        <td>Other services</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12</th>
+                        <td>TOTAL</td>
+                        <td>Total of all sectors</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+  </div>
+
+  <div class="container text-center">
+
+        <input type="text" id="fname" name="fname" onchange="cb1(this.value)", value="C",  STYLE="color: #000099; font-family: Verdana; font-size: 12px; background-color: #FFC0CB;" size="10" maxlength="5">
+
+        <p></p>
+        <div id="chart" class="chart"></div>
+
+  </div>
+
+    <script>
+    d = {{ graphJSON | safe }};
+    Plotly.newPlot('chart', d, {});
+    </script>
+
+
+{% endblock %}
